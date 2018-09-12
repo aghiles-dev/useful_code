@@ -1,0 +1,10 @@
+<button class="btn {{buttonType}}"
+        [ngClass]="buttonClass"
+        type="button"
+        [disabled]="isButtonSpinnerDisabled()"
+        (click)="onButtonSpinnerClick()">
+  <span class="{{pictoBeforeButton}}" *ngIf="existPictoBeforeButton()"></span>
+  {{buttonLabel}}
+  <span class="{{pictoAfterButton}}" *ngIf="existPictoAfterButton()"></span>
+  <span *ngIf="inProgress" class="fa fa-spinner fa-spin"></span>
+</button>

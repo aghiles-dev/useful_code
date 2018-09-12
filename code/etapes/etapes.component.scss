@@ -1,0 +1,43 @@
+@import "../styles/variables";
+
+.etape-vignette {
+  font-size: 22px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 2px;
+  border: 1px solid $color-main-red;
+}
+
+.current, .previous {
+  background-color: $color-main-red;
+  border-color: $color-main-red;
+}
+
+.color-current, .color-previous {
+  color: white;
+}
+
+.color-next{
+  color: $color-main-red;
+}
+
+.not-visible {
+  visibility: hidden;
+}
+
+.horizontal-line {
+  border-top: 1px solid;
+  position: relative;
+  top: 25px;
+  border-color: $color-main-red;
+}
+
+.horizontal-line-current-after,
+.horizontal-line-next-before,
+.horizontal-line-next-after{
+  opacity: 0.2;
+}

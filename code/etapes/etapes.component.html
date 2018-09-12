@@ -1,0 +1,40 @@
+<div class="row margin-bottom-30 margin-top-5">
+  <div *ngFor="let etape of etapes; let first = first; let last = last">
+
+    <div class="padding-horizontal-15 pull-left" [style.width.%]="getEtapeWidth()">
+      <div class="row">
+
+        <div class="col-sm-4 hidden-xs horizontal-line horizontal-line-{{getEtapeStatus(etape.index)}}-before"
+             [ngClass]="{'not-visible': first}">
+        </div>
+
+        <div class="col-sm-4">
+          <div class="etape-vignette color-{{getEtapeStatus(etape.index)}}"
+               [ngClass]="getEtapeStatus(etape.index)">
+
+            <span *ngIf="!isEtapePrevious(etape.index)">
+              {{etape.index}}
+            </span>
+
+            <i class="fa fa-check"
+               aria-hidden="true"
+               *ngIf="isEtapePrevious(etape.index)"></i>
+          </div>
+
+        </div>
+
+        <div class="col-sm-4 hidden-xs horizontal-line horizontal-line-{{getEtapeStatus(etape.index)}}-after"
+             [ngClass]="{'not-visible': last}">
+        </div>
+
+      </div>
+
+      <div class="row margin-top-15 hidden-xs">
+        <div class="col-xs-12 text-center">
+          <span class="text-size-16">{{etape.label | translate}}</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
