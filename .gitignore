@@ -1,0 +1,20 @@
+# Node stuff
+**/node_modules
+
+# Bin and lib
+bin/
+include/
+lib/
+
+# Logs
+*.log
+
+# Unknown
+*.env
+
+### IDE
+
+# Intellij & Pycharm files
+.idea/
+*.iml
+
