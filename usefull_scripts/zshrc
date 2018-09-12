@@ -1,0 +1,165 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+ export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load. Optionally, if you set this to "random"
+# it'll load a random theme each time that oh-my-zsh is loaded.
+# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git github autojump autopep8)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias editzsh="gedit ~/.zshrc"
+
+alias sshAnef="ssh -p 220 ubuntu@anef.scille.eu"
+
+alias gs="git status"
+alias gfp="git fetch -p"
+alias ga="git add ."
+alias gcm="git commit -m"
+alias gc="git checkout"
+alias gl="git log"
+alias gd="git diff"
+alias grh="git reset --hard"
+alias gdevelop="git checkout develop && git fetch -p && git reset --hard origin/develop"
+alias grd="git rebase develop"
+alias grc="git rebase --continue"
+alias gp="git pull"
+alias gamend="git commit --amend"
+alias gpone="git branch -u origin $1 && git push"
+alias gpo="git push origin $1"
+alias gpfo="git push -f origin $1"
+gpenv() {
+  git push -f origin HEAD:demo-"$1"
+}
+
+alias cleanBranch="git branch --merged | egrep -v '(^\*|master|dev)' | xargs git branch -d"
+
+alias test_watch="npm run test:unit:watch"
+
+alias vact="j b; . venv/bin/activate"
+
+backStart() {
+  source gaip.sh;
+  ./manage.py runserver --host=0.0.0.0 -rd
+}
+
+alias restartWifi="sudo systemctl restart network-manager"
+
+alias dockerStartMongo="sudo docker start mongodb-aef"
+alias dockerStartRabbit="sudo docker start rabbitmq-aef"
+alias dockerStartSolr="sudo docker start solr-aef"
+
+dockerStartAll() {
+  dockerStartMongo;
+  dockerStartRabbit;
+  dockerStartSolr
+}
+
+alias dockerStopMongo="sudo docker stop mongodb-aef"
+alias dockerStopRabbit="sudo docker stop rabbitmq-aef"
+alias dockerStopSolr="sudo docker stop solr-aef"
+
+dockerStopAll() {
+  dockerStopMongo;
+  dockerStopRabbit;
+  dockerStopSolr
+}
+
+alias dockerAccessMongo="sudo docker exec -it mongodb-aef /bin/bash"
+alias dockerAccessRabbit="sudo docker exec -it rabbitmq-aef /bin/bash"
+alias dockerAccessSolr="sudo docker exec -it solr-aef /bin/bash"
+
+dockerCpMongo() {
+  sudo docker cp "$1" mongodb-aef:"$2"
+}
+dockerCpRabbit() {
+  sudo docker cp "$1" rabbit-aef:"$2"
+}
+dockerCpSolr() {
+  sudo docker cp "$1" solr-aef:"$2"
+}
+
+robot3t() {
+  cd ~/Téléchargements/robo3t/bin;
+  ./robo3t;
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
