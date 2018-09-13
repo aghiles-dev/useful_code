@@ -4,7 +4,7 @@ import {
   equals,
   isArrayEmpty,
   isObjectEmpty
-} from "./gaip-utils";
+} from "./utils";
 
 describe(".capitalize(:word)", () => {
   describe("When word is null | undefined", () => {

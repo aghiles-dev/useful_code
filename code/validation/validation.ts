@@ -1,7 +1,7 @@
 import { isNullOrUndefined, isString } from "util";
 import { Regex } from "./regex";
 import { ErrorTypes } from "./error-types";
-import { isArrayEmpty, isObjectEmpty } from "../gaip-utils";
+import { isArrayEmpty, isObjectEmpty } from "../utils";
 
 export class Validation {
   public constraints: object;

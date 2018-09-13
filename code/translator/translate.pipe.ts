@@ -2,7 +2,7 @@ import { Pipe, PipeTransform } from "@angular/core";
 import { TranslatorService } from "./translator.service";
 import { isNullOrUndefined } from "util";
 import { TranslatorDictionaryService } from "./translator-dictionary.service";
-import { equals } from "../gaip-utils";
+import { equals } from "../utils";
 
 @Pipe({
   name: "translate",
