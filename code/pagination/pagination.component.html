@@ -1,0 +1,55 @@
+<div class="container-fluid" *ngIf="isMoreThanOnePage()">
+  <div class="row margin-bottom-20 margin-top-20">
+    <div class="col-sm-12">
+      <div class="form-inline text-right">
+        <div class="form-group">
+          <button (click)="goToFirstPage()"
+                  type="button"
+                  class="btn btn-default"
+                  [disabled]="isFirstPage()"
+                  ngClass="{'not-allowed-cursor': isFirstPage()}">
+            <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+            {{"DEBUT" | translate}}
+          </button>
+          <button (click)="goToPreviousPage()"
+                  type="button"
+                  class="btn btn-default"
+                  [disabled]="isFirstPage()"
+                  ngClass="{'not-allowed-cursor': isFirstPage()}">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+            {{"PRECEDENTE" | translate}}
+          </button>
+        </div>
+        <div class="form-group margin-left-4 margin-right-4">
+          <div class="form-group">
+            <select [(ngModel)]="selectedPage" (change)="goToSelectedPage(selectedPage)"
+                    class="form-control">
+              <option [value]="page"
+                      *ngFor="let page of arrayOfPages">
+                {{"PAGE" | translate}} {{page}}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <button (click)="goToNextPage()"
+                  type="button"
+                  class="btn btn-default"
+                  [disabled]="isLastPage()"
+                  ngClass="{'not-allowed-cursor': isLastPage()}">
+            {{"SUIVANTE" | translate}}
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+          </button>
+          <button (click)="goToLastPage()"
+                  type="button"
+                  class="btn btn-default"
+                  [disabled]="isLastPage()"
+                  ngClass="{'not-allowed-cursor': isLastPage()}">
+            {{"FIN" | translate}}
+            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

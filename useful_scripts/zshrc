@@ -102,8 +102,8 @@ alias grc="git rebase --continue"
 alias gp="git pull"
 alias gamend="git commit --amend"
 alias gpone="git branch -u origin $1 && git push"
-alias gpo="git push origin $1"
-alias gpfo="git push -f origin $1"
+alias gpo="git push origin HEAD"
+alias gpfo="git push -f origin HEAD"
 gpenv() {
   git push -f origin HEAD:demo-"$1"
 }
